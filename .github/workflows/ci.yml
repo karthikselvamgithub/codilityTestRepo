@@ -28,15 +28,3 @@ jobs:
     - name: Run tests
       run: npm run cypress:run
       working-directory: ./cypress/
-
-    - name: Build project
-      run: npm run build
-      working-directory: ./cypress/
-
-    - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/main'
-      run: |
-        npm install -g gh-pages
-        npm run deploy
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
